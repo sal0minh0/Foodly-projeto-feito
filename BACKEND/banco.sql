@@ -42,3 +42,85 @@ CREATE TABLE restaurantes (
 DROP TABLE IF EXISTS restaurantes;
 DROP TABLE IF EXISTS clientes;
 DROP TABLE IF EXISTS usuarios;
+
+
+
+-- ======================
+-- PARTE 2 - UP (H3 e H4)
+-- ======================
+
+-- Produtos que os restaurantes oferecem (cardápio)
+CREATE TABLE produtos (
+    id              BIGSERIAL PRIMARY KEY,
+    restaurante_id  BIGINT          NOT NULL,
+    nome            VARCHAR(150)    NOT NULL,
+    descricao       TEXT,
+    preco           NUMERIC(10, 2)  NOT NULL,
+    ativo           BOOLEAN         NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (restaurante_id) REFERENCES restaurantes(id)
+);
+
+-- Carrinho de compras do cliente
+CREATE TABLE carrinhos (
+    id              BIGSERIAL PRIMARY KEY,
+    cliente_id      BIGINT          NOT NULL,
+    status          VARCHAR(20)     NOT NULL DEFAULT 'aberto', 
+    -- 'aberto', 'fechado', 'expirado'
+    criado_em       TIMESTAMP       NOT NULL DEFAULT NOW(),
+    atualizado_em   TIMESTAMP       NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+-- Itens do carrinho
+CREATE TABLE carrinho_itens (
+    id              BIGSERIAL PRIMARY KEY,
+    carrinho_id     BIGINT          NOT NULL,
+    produto_id      BIGINT          NOT NULL,
+    quantidade      INT             NOT NULL DEFAULT 1,
+    preco_unitario  NUMERIC(10, 2)  NOT NULL,
+    FOREIGN KEY (carrinho_id) REFERENCES carrinhos(id),
+    FOREIGN KEY (produto_id)  REFERENCES produtos(id),
+    -- Evita ter o mesmo produto repetido no mesmo carrinho
+    UNIQUE (carrinho_id, produto_id)
+);
+
+-- Pedido gerado a partir do carrinho
+CREATE TABLE pedidos (
+    id                  BIGSERIAL PRIMARY KEY,
+    cliente_id          BIGINT          NOT NULL,
+    restaurante_id      BIGINT          NOT NULL,
+    carrinho_id         BIGINT,
+    valor_total         NUMERIC(10, 2)  NOT NULL,
+    status              VARCHAR(20)     NOT NULL,
+    -- 'novo', 'preparando', 'pronto', 'em_entrega', 'entregue', 'cancelado'
+    endereco_entrega    TEXT            NOT NULL,
+    criado_em           TIMESTAMP       NOT NULL DEFAULT NOW(),
+    atualizado_em       TIMESTAMP       NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (cliente_id)     REFERENCES clientes(id),
+    FOREIGN KEY (restaurante_id) REFERENCES restaurantes(id),
+    FOREIGN KEY (carrinho_id)    REFERENCES carrinhos(id)
+);
+
+-- Itens do pedido (snapshot do carrinho no momento da compra)
+CREATE TABLE pedido_itens (
+    id              BIGSERIAL PRIMARY KEY,
+    pedido_id       BIGINT          NOT NULL,
+    produto_id      BIGINT          NOT NULL,
+    quantidade      INT             NOT NULL,
+    preco_unitario  NUMERIC(10, 2)  NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);
+
+
+-- =========================
+-- PARTE 2 - DOWN (rollback)
+-- =========================
+
+DROP TABLE IF EXISTS pedido_itens;
+DROP TABLE IF EXISTS pedidos;
+DROP TABLE IF EXISTS carrinho_itens;
+DROP TABLE IF EXISTS carrinhos;
+DROP TABLE IF EXISTS produtos;
+
+
