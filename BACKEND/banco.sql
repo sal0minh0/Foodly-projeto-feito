@@ -180,3 +180,5 @@ CREATE TABLE entrega_respostas (
 DROP TABLE IF EXISTS entrega_respostas;
 DROP TABLE IF EXISTS entregas;
 DROP TABLE IF EXISTS entregadores;
+
+
