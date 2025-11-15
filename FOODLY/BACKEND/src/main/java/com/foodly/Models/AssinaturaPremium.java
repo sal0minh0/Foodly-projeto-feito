@@ -1,18 +1,39 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "assinaturas_premium")
 public class AssinaturaPremium {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer clienteId;
+    
+    @Column(nullable = false)
     private Integer planoId;
-    private String status;            // ativa, expirada, cancelada, pendente
+    
+    @Column(nullable = false)
+    private String status;
+    
+    @Column(nullable = false)
     private LocalDateTime dataInicio;
+    
+    @Column(nullable = false)
     private LocalDateTime dataFim;
+    
+    @Column(nullable = false)
     private boolean renovacaoAutomatica;
+    
     private String metodoPagamento;
+    
     private String referenciaPagamento;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public AssinaturaPremium() {

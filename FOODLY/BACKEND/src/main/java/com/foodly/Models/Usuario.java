@@ -1,15 +1,31 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false, unique = true)
     private String email;
+    
+    @Column(nullable = false)
     private String senhaHash;
+    
     private String telefone;
-    private String tipoUsuario;   // 'cliente', 'restaurante', 'entregador', 'suporte'
+    
+    @Column(nullable = false)
+    private String tipoUsuario;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public Usuario() {

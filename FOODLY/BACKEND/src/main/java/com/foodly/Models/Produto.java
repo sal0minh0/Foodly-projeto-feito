@@ -1,12 +1,27 @@
 package models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "produtos")
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer restauranteId;
+    
+    @Column(nullable = false)
     private String nome;
+    
     private String descricao;
+    
+    @Column(nullable = false)
     private double preco;
+    
+    @Column(nullable = false)
     private boolean ativo;
 
     public Produto() {

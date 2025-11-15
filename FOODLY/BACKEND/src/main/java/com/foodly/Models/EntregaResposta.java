@@ -1,13 +1,26 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "entrega_respostas")
 public class EntregaResposta {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer entregaId;
+    
+    @Column(nullable = false)
     private Integer entregadorId;
-    private String resposta;          // aceito ou recusado
+    
+    @Column(nullable = false)
+    private String resposta;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public EntregaResposta() {

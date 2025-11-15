@@ -1,11 +1,25 @@
 package models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "pedido_itens")
 public class PedidoItem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer pedidoId;
+    
+    @Column(nullable = false)
     private Integer produtoId;
+    
+    @Column(nullable = false)
     private int quantidade;
+    
+    @Column(nullable = false)
     private double precoUnitario;
 
     public PedidoItem() {

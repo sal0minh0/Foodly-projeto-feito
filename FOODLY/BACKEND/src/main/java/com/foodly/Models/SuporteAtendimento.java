@@ -1,14 +1,28 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "suporte_atendimentos")
 public class SuporteAtendimento {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer usuarioId;
+    
+    @Column(nullable = false)
     private String assunto;
-    private String status;            // aberto, em_atendimento, encerrado
+    
+    @Column(nullable = false)
+    private String status;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
+    
     private LocalDateTime encerradoEm;
 
     public SuporteAtendimento() {

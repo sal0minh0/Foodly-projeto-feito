@@ -1,14 +1,29 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "entregadores")
 public class Entregador {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer usuarioId;
-    private String veiculoTipo;    // moto, bike, carro, etc.
-    private String documento;      // CNH, CPF, etc.
+    
+    @Column(nullable = false)
+    private String veiculoTipo;
+    
+    @Column(nullable = false)
+    private String documento;
+    
+    @Column(nullable = false)
     private boolean ativo;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public Entregador() {

@@ -1,13 +1,25 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "carrinhos")
 public class Carrinho {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer clienteId;
-    private String status; // aberto, fechado, expirado
+    
+    @Column(nullable = false)
+    private String status;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
+    
     private LocalDateTime atualizadoEm;
 
     public Carrinho() {

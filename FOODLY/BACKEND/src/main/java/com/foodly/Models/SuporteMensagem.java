@@ -1,14 +1,29 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "suporte_mensagens")
 public class SuporteMensagem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer atendimentoId;
-    private String remetenteTipo;      // usuario ou atendente
+    
+    @Column(nullable = false)
+    private String remetenteTipo;
+    
+    @Column(nullable = false)
     private Integer remetenteUsuarioId;
+    
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String mensagem;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime enviadoEm;
 
     public SuporteMensagem() {

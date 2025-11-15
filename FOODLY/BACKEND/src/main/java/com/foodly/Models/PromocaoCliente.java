@@ -1,13 +1,25 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "promocoes_cliente")
 public class PromocaoCliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer promocaoId;
+    
+    @Column(nullable = false)
     private Integer clienteId;
+    
+    @Column(nullable = false)
     private boolean resgatada;
+    
     private LocalDateTime resgatadaEm;
 
     public PromocaoCliente() {

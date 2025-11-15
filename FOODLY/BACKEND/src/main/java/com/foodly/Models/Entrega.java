@@ -1,17 +1,34 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "entregas")
 public class Entrega {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer pedidoId;
-    private Integer entregadorId;      // pode ser null enquanto estiver "disponível"
-    private String status;             // disponivel, atribuida, em_rota, entregue, cancelada
-    private String rotaSugerida;       // pode ser JSON, texto, etc.
-    private Integer tempoEstimadoMin;  // em minutos
-    private Double distanciaKm;        // em km
+    
+    private Integer entregadorId;
+    
+    @Column(nullable = false)
+    private String status;
+    
+    @Column(columnDefinition = "TEXT")
+    private String rotaSugerida;
+    
+    private Integer tempoEstimadoMin;
+    
+    private Double distanciaKm;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
+    
     private LocalDateTime atualizadoEm;
 
     public Entrega() {

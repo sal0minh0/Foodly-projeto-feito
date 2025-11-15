@@ -3,8 +3,8 @@ spring:
     name: foodly-backend
   datasource:
     url: jdbc:mysql://localhost:3306/foodly
-    username: root
-    password: 
+    username: "Alvinqw12"
+    password: "@Alvin2003"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -14,12 +14,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
-  ai:
-    openai:
-      api-key: ${OPENAI_API_KEY:your-api-key-here}
-      base-url: https://api.openai.com/v1
 
 server:
-  port: 8080
+  port: 3080
   servlet:
     context-path: /api

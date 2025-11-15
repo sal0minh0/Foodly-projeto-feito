@@ -1,9 +1,18 @@
 package models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "clientes")
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer usuarioId;
+    
     private String enderecoPadrao;
 
     public Cliente() {

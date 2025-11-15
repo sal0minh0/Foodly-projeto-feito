@@ -1,18 +1,38 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "promocoes")
 public class Promocao {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer restauranteId;      // pode ser null (promoção geral)
+    
+    private Integer restauranteId;
+    
+    @Column(nullable = false)
     private String titulo;
+    
     private String descricao;
-    private String tipoDesconto;        // 'percentual', 'valor', 'frete_gratis'
-    private Double valorDesconto;       // depende do tipoDesconto
+    
+    @Column(nullable = false)
+    private String tipoDesconto;
+    
+    private Double valorDesconto;
+    
+    @Column(nullable = false)
     private LocalDateTime dataInicio;
+    
+    @Column(nullable = false)
     private LocalDateTime dataFim;
+    
+    @Column(nullable = false)
     private boolean ativo;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public Promocao() {

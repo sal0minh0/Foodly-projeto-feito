@@ -1,15 +1,31 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "planos_premium")
 public class PlanoPremium {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private String nome;
+    
     private String descricao;
+    
+    @Column(nullable = false)
     private double valorMensal;
-    private int duracaoDias;           // geralmente 30
+    
+    @Column(nullable = false)
+    private int duracaoDias;
+    
+    @Column(nullable = false)
     private boolean ativo;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public PlanoPremium() {

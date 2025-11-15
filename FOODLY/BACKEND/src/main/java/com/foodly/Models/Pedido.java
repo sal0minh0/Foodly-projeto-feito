@@ -1,17 +1,37 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "pedidos")
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer clienteId;
+    
+    @Column(nullable = false)
     private Integer restauranteId;
+    
+    @Column(nullable = false)
     private Integer carrinhoId;
+    
+    @Column(nullable = false)
     private double valorTotal;
-    private String status;               // novo, preparando, pronto, em_entrega, entregue, cancelado
+    
+    @Column(nullable = false)
+    private String status;
+    
+    @Column(nullable = false)
     private String enderecoEntrega;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
+    
     private LocalDateTime atualizadoEm;
 
     public Pedido() {

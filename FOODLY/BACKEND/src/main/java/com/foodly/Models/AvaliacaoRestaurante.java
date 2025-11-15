@@ -1,15 +1,32 @@
 package models;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "avaliacoes_restaurante")
 public class AvaliacaoRestaurante {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable = false)
     private Integer clienteId;
+    
+    @Column(nullable = false)
     private Integer restauranteId;
+    
+    @Column(nullable = false)
     private Integer pedidoId;
-    private int nota;                     // 1 a 5
+    
+    @Column(nullable = false)
+    private int nota;
+    
+    @Column(columnDefinition = "TEXT")
     private String comentario;
+    
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
 
     public AvaliacaoRestaurante() {
