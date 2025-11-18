@@ -1,0 +1,231 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #f9fafb;
+
+  background:
+    linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.95)),
+    url("https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+/* CENTRALIZA O CARD */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD PRINCIPAL */
+.orders-card {
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  background-color: #111827;
+  border-radius: 28px;
+  padding: 22px 18px 16px;
+  box-shadow: 0 18px 40px rgba(15,23,42,0.38);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* TOPO */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: none;
+  background-color: #0b1220;
+  color: #f9fafb;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-btn {
+  background-color: #ff8a1f;
+  color: #111827;
+}
+
+.title-area {
+  flex: 1;
+}
+
+.title-area h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.title-area p {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* LISTA DE PEDIDOS */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CADA PEDIDO */
+.order-item {
+  background-color: #0f172a;
+  border-radius: 18px;
+  padding: 10px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* CABEÇALHO DO PEDIDO */
+.order-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-id {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.order-date {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* STATUS */
+.status {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.status-preparing {
+  background-color: rgba(245,158,11,0.18);
+  color: #f59e0b;
+}
+
+.status-onway {
+  background-color: rgba(59,130,246,0.18);
+  color: #3b82f6;
+}
+
+.status-done {
+  background-color: rgba(16,185,129,0.18);
+  color: #10b981;
+}
+
+/* DESCRIÇÃO */
+.order-desc {
+  font-size: 12px;
+  color: #e5e7eb;
+}
+
+/* RODAPÉ DO PEDIDO */
+.order-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-total {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f97316;
+}
+
+/* BOTÃO DETALHES */
+.btn-details {
+  border: none;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 11px;
+  background-color: #ff8a1f;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+
+.btn-details:hover {
+  background-color: #e67608;
+  transform: translateY(-1px);
+}
+
+/* PROGRESSO SIMPLES */
+.progress {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.step {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: #020617;
+  color: #9ca3af;
+}
+
+.step.done {
+  background-color: rgba(16,185,129,0.16);
+  color: #6ee7b7;
+}
+
+.step.active {
+  background-color: rgba(249,115,22,0.25);
+  color: #fdba74;
+}
+
+/* RODAPÉ DA PÁGINA */
+.orders-footer {
+  margin-top: 12px;
+}
+
+.btn-back-menu {
+  width: 100%;
+  border-radius: 999px;
+  padding: 10px 0;
+  border: 1px solid #4b5563;
+  background-color: transparent;
+  color: #e5e7eb;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-back-menu:hover {
+  background-color: #1f2937;
+  border-color: #9ca3af;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .orders-card {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}

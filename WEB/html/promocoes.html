@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>FoodCart - Minhas Promoções</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="promocoes.css">
+</head>
+<body>
+  <div class="page">
+
+    <div class="promo-card">
+      <!-- TOPO -->
+      <header class="top-bar">
+        <button class="icon-btn" aria-label="Voltar para o menu" onclick="window.location.href='menu.html'">
+          ←
+        </button>
+
+        <div class="title-area">
+          <h1>Minhas Promoções</h1>
+          <p>Ofertas especiais escolhidas para você</p>
+        </div>
+
+        <!-- Ícone carrinho -->
+        <button class="icon-btn cart-btn" aria-label="Carrinho" onclick="window.location.href='carrinho.html'">
+          🛒
+        </button>
+      </header>
+
+      <!-- LISTA DE PROMOÇÕES -->
+      <section class="promo-list">
+
+        <!-- Promo 1 -->
+        <article class="promo-item">
+          <div class="promo-image">
+            <img src="https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg" alt="Pizza em Dobro">
+            <span class="badge">50% OFF</span>
+          </div>
+
+          <div class="promo-info">
+            <h2>Pizza em Dobro</h2>
+            <p class="restaurant">Pizzaria La Massa</p>
+            <p class="description">
+              Peça uma pizza grande e ganhe outra do mesmo sabor.
+            </p>
+
+            <div class="price-row">
+              <div class="prices">
+                <span class="old-price">R$ 79,80</span>
+                <span class="new-price">R$ 39,90</span>
+              </div>
+              <button class="btn-apply">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Promo 2 -->
+        <article class="promo-item">
+          <div class="promo-image">
+            <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg" alt="Combo Burger + Refri">
+            <span class="badge">Combo</span>
+          </div>
+
+          <div class="promo-info">
+            <h2>Combo Burger + Refri</h2>
+            <p class="restaurant">Burger House</p>
+            <p class="description">
+              Hambúrguer clássico, batata média e refrigerante lata.
+            </p>
+
+            <div class="price-row">
+              <div class="prices">
+                <span class="old-price">R$ 41,80</span>
+                <span class="new-price">R$ 29,90</span>
+              </div>
+              <button class="btn-apply">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Promo 3 -->
+        <article class="promo-item">
+          <div class="promo-image">
+            <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg" alt="Sushi Night">
+            <span class="badge">-30%</span>
+          </div>
+
+          <div class="promo-info">
+            <h2>Sushi Night</h2>
+            <p class="restaurant">Tokyo Sushi Bar</p>
+            <p class="description">
+              Combo com 24 peças variadas com 30% de desconto.
+            </p>
+
+            <div class="price-row">
+              <div class="prices">
+                <span class="old-price">R$ 89,90</span>
+                <span class="new-price">R$ 62,90</span>
+              </div>
+              <button class="btn-apply">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Promo 4 -->
+        <article class="promo-item">
+          <div class="promo-image">
+            <img src="https://images.pexels.com/photos/4109992/pexels-photo-4109992.jpeg" alt="Sobremesa Grátis">
+            <span class="badge">GRÁTIS</span>
+          </div>
+
+          <div class="promo-info">
+            <h2>Sobremesa Grátis</h2>
+            <p class="restaurant">Doces & Cia</p>
+            <p class="description">
+              Ganhe um brownie com sorvete em pedidos acima de R$ 80,00.
+            </p>
+
+            <div class="price-row">
+              <div class="prices">
+                <span class="new-price">a partir de R$ 80,00</span>
+              </div>
+              <button class="btn-apply">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div>
+
+  </div>
+</body>
+</html>

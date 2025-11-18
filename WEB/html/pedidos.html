@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>FoodCart - Meus Pedidos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pedidos.css">
+</head>
+<body>
+  <div class="page">
+
+    <div class="orders-card">
+      <!-- Topo -->
+      <header class="top-bar">
+        <button class="icon-btn" aria-label="Voltar ao menu" onclick="window.location.href='menu.html'">
+          ←
+        </button>
+
+        <div class="title-area">
+          <h1>Meus Pedidos</h1>
+          <p>Acompanhe o status das suas entregas</p>
+        </div>
+
+        <!-- Carrinho -->
+        <button class="icon-btn cart-btn" aria-label="Carrinho" onclick="window.location.href='carrinho.html'">
+          🛒
+        </button>
+      </header>
+
+      <!-- Lista de pedidos -->
+      <section class="orders-list">
+
+        <!-- Pedido 1 -->
+        <article class="order-item">
+          <div class="order-header">
+            <div>
+              <span class="order-id">Pedido #1023</span>
+              <span class="order-date">Hoje • 19:30</span>
+            </div>
+            <span class="status status-onway">A caminho</span>
+          </div>
+
+          <p class="order-desc">
+            Pizza Margherita, Hambúrguer Clássico, Brownie com Sorvete
+          </p>
+
+          <div class="order-footer">
+            <span class="order-total">Total: R$ 107,50</span>
+            <button class="btn-details">Ver detalhes</button>
+          </div>
+
+          <!-- Linha de progresso simples -->
+          <div class="progress">
+            <span class="step done">Pedido recebido</span>
+            <span class="step done">Em preparo</span>
+            <span class="step active">A caminho</span>
+            <span class="step">Entregue</span>
+          </div>
+        </article>
+
+        <!-- Pedido 2 -->
+        <article class="order-item">
+          <div class="order-header">
+            <div>
+              <span class="order-id">Pedido #1018</span>
+              <span class="order-date">Ontem • 21:10</span>
+            </div>
+            <span class="status status-done">Entregue</span>
+          </div>
+
+          <p class="order-desc">
+            Combo Burger + Refri, Batata grande
+          </p>
+
+          <div class="order-footer">
+            <span class="order-total">Total: R$ 64,90</span>
+            <button class="btn-details">Ver detalhes</button>
+          </div>
+
+          <div class="progress">
+            <span class="step done">Pedido recebido</span>
+            <span class="step done">Em preparo</span>
+            <span class="step done">A caminho</span>
+            <span class="step done">Entregue</span>
+          </div>
+        </article>
+
+        <!-- Pedido 3 -->
+        <article class="order-item">
+          <div class="order-header">
+            <div>
+              <span class="order-id">Pedido #1012</span>
+              <span class="order-date">12/11 • 12:45</span>
+            </div>
+            <span class="status status-preparing">Em preparo</span>
+          </div>
+
+          <p class="order-desc">
+            Sushi Night (combo 24 peças)
+          </p>
+
+          <div class="order-footer">
+            <span class="order-total">Total: R$ 62,90</span>
+            <button class="btn-details">Ver detalhes</button>
+          </div>
+
+          <div class="progress">
+            <span class="step done">Pedido recebido</span>
+            <span class="step active">Em preparo</span>
+            <span class="step">A caminho</span>
+            <span class="step">Entregue</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Rodapé simples -->
+      <footer class="orders-footer">
+        <button class="btn-back-menu" onclick="window.location.href='menu.html'">
+          Voltar ao cardápio
+        </button>
+      </footer>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* fundo leve com imagem translúcida */
+  background:
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.9)),
+    url("https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  min-height: 100vh;
+  color: #1f2937;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD CENTRAL */
+.support-card {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 26px;
+}
+
+/* FORMULÁRIO */
+.support-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* CAMPOS DE TEXTO */
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background-color: #f9fafb;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+}
+
+.input-group textarea {
+  height: 140px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #ff8a1f;
+  box-shadow: 0 0 0 2px rgba(255,138,31,0.35);
+}
+
+/* BOTÃO */
+.btn-send {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff8a1f;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-send:hover {
+  background-color: #e67608;
+  transform: translateY(-1px);
+}
+
+.btn-send:active {
+  transform: translateY(0);
+}
