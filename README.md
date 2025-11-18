@@ -3,7 +3,7 @@
 ## VIDEO DO FIGMA COMPLETO : 
 https://drive.google.com/drive/folders/182J01LpIFcFQ3QvIALAYNGNp9kcXe5v5?usp=drive_link****
 
-## Diagramas 
+## DIAGRAMAS :
 <img width="1319" height="492" alt="image" src="https://github.com/user-attachments/assets/88214b46-d645-4726-af56-e546ccf9285c" />
 
 
@@ -13,7 +13,7 @@ https://drive.google.com/drive/folders/182J01LpIFcFQ3QvIALAYNGNp9kcXe5v5?usp=dri
 <img width="1447" height="438" alt="image" src="https://github.com/user-attachments/assets/980de3b0-5bdd-4bef-a42a-f762ec3f9181" />
 
 
-## 🎯 Quadro Scrum 
+## 🎯 QUADRO SCRUM
 https://projeto-unicap-sistema-delivery.atlassian.net/jira/software/projects/SCRUM/boards/1
 
 
@@ -21,7 +21,7 @@ https://projeto-unicap-sistema-delivery.atlassian.net/jira/software/projects/SCR
 https://fluxo-bpmn.netlify.app/
 
 
-### 💻 Pair Programming
+### 💻 PAIR PROGRAMMING
 
 <details>
 Durante o desenvolvimento do projeto, realizamos sessões de *Pair Programming*, alternando os papéis de **Driver** (quem codifica) e **Navigator** (quem orienta e revisa). Essa prática ajudou a melhorar a qualidade do código, promover o aprendizado conjunto e facilitar a resolução de problemas.
