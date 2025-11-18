@@ -8,48 +8,81 @@
 </head>
 <body>
   <div class="page">
-    <!-- “Celular” central -->
-    <div class="login-card">
-      <!-- Logo / título -->
-      <header class="logo-area">
-        <div class="logo-icon">
-          <!-- pode trocar por uma imagem depois -->
-          <span>🍽️</span>
+    <div class="auth-container">
+
+      <!-- Logo + mensagem de boas-vindas -->
+      <div class="brand">
+        <div class="brand-logo">
+          🍽
         </div>
-        <h1 class="app-name">FoodCart</h1>
-        <p class="app-subtitle">Pedidos rápidos e saborosos</p>
-      </header>
+        <h1 class="brand-title">Bem-vindo de volta!</h1>
+        <p class="brand-subtitle">
+          Faça login e continue aproveitando nossos sabores
+        </p>
+      </div>
 
-      <!-- Formulário -->
-      <form class="login-form">
-        <div class="input-group">
-          <input type="email" placeholder="email@exemplo.com" required>
-        </div>
+      <!-- Card de login -->
+      <div class="card">
+        <h2 class="card-title">Entrar</h2>
+        <p class="card-subtitle">
+          Faça login para acessar sua conta
+        </p>
 
-        <div class="input-group">
-          <input type="password" placeholder="••••••••••" required>
-        </div>
+        <form class="form">
 
-        <button onclick="window.location.href='menu.html'" class="btn-login">
-  Login
-</button>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+              <span class="input-icon">📧</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite seu email"
+                required
+              >
+            </div>
+          </div>
 
+          <!-- Senha -->
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha"
+                required
+              >
+            </div>
 
-        <div class="options-row">
+            <!-- link esqueceu senha alinhado à direita -->
+            <div class="forgot-wrapper">
+              <a href="#" class="forgot-link">Esqueci minha senha</a>
+            </div>
+          </div>
 
-            
-          <label class="remember">
-            <input type="checkbox">
-            <span>Lembrar-me</span>
-          </label>
-          <a href="#" class="forgot-link">Esqueceu?</a>
-        </div>
+          <!-- Botão de login -->
+          <button type="submit" class="btn-primary">
+             <a href="menu.html" class="forgot-link">ENTRAR</a>
+          </button>
+        </form>
 
-            <div class="help-row">
-  <p>Precisa de ajuda? <a href="atendimentoAoCliente.html">Clique aqui</a></p>
-</div>
+        <!-- Link para cadastro -->
+        <p class="bottom-text">
+          Problemas com a plataforma ? 
+          <a href="cadastroCliente.html">Cadastre-se</a>
+        </p>
+      </div>
 
-      </form>
+      <!-- Rodapé opcional -->
+      <p class="footer-text">
+        © 2024 FoodCart. Todos os direitos reservados.
+      </p>
+
     </div>
   </div>
 </body>

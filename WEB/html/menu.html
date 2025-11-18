@@ -2,225 +2,126 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>FoodCart - Cardápio</title>
+  <title>Foodly - Início</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-  <div class="page">
 
-    <div class="menu-card">
-
-      <!-- Topo com busca + menu + meus pedidos + carrinho -->
-      <header class="top-bar">
-        <!-- Voltar para o login -->
-        <button class="icon-btn" aria-label="Voltar ao login" onclick="window.location.href='index.html'">
-          ←
-        </button>
-
-        <!-- Barra de busca -->
-        <div class="search-box">
-          <input type="text" placeholder="Buscar prato...">
-          <button class="search-btn">🔍</button>
-        </div>
-
-        <!-- Menu (ainda sem ação, só visual) -->
-        <button class="icon-btn" aria-label="Menu">
-          ☰
-        </button>
-
-        <!-- Meus pedidos -->
-        <button class="icon-btn pedidos-btn" aria-label="Meus pedidos" onclick="window.location.href='pedidos.html'">
-          🧾
-        </button>
-
-        <!-- Carrinho -->
-        <button class="icon-btn cart-btn" aria-label="Carrinho" onclick="window.location.href='carrinho.html'">
-          🛒
-        </button>
-      </header>
-
-      <!-- Título -->
-      <div class="menu-header">
-        <h1>Cardápio</h1>
-        <p>Escolha seus pratos favoritos</p>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="logo-box">
+        🍽
       </div>
-
-      <!-- GRID DE COMIDAS -->
-      <section class="food-grid">
-
-        <!-- 1 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg" alt="Pizza Margherita">
-          </div>
-          <h3>Pizza Margherita</h3>
-          <p class="food-desc">Molho de tomate, muçarela e manjericão.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 29,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 2 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg" alt="Hambúrguer Clássico">
-          </div>
-          <h3>Hambúrguer Clássico</h3>
-          <p class="food-desc">Carne 150g, queijo, salada e molho especial.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 24,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 3 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg" alt="Combo Sushi Mix">
-          </div>
-          <h3>Combo Sushi Mix</h3>
-          <p class="food-desc">16 peças variadas de sushi e sashimi.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 49,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 4 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg" alt="Salada Caesar">
-          </div>
-          <h3>Salada Caesar</h3>
-          <p class="food-desc">Alface, frango grelhado, croutons e molho.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 21,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 5 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg" alt="Espaguete ao Molho">
-          </div>
-          <h3>Espaguete ao Molho</h3>
-          <p class="food-desc">Massa fresca com molho de tomate e ervas.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 27,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 6 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/4109992/pexels-photo-4109992.jpeg" alt="Brownie com Sorvete">
-          </div>
-          <h3>Brownie com Sorvete</h3>
-          <p class="food-desc">Brownie de chocolate com bola de sorvete.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 18,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 7 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg" alt="Tacos Mexicanos">
-          </div>
-          <h3>Tacos Mexicanos</h3>
-          <p class="food-desc">Tortilhas crocantes com carne e cheddar.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 22,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 8 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg" alt="Pizza Pepperoni">
-          </div>
-          <h3>Pizza Pepperoni</h3>
-          <p class="food-desc">Clássica com bastante pepperoni.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 34,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 9 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/2878747/pexels-photo-2878747.jpeg" alt="Milkshake de Morango">
-          </div>
-          <h3>Milkshake de Morango</h3>
-          <p class="food-desc">Gelado, cremoso e super refrescante.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 17,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 10 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg" alt="Burrito Especial">
-          </div>
-          <h3>Burrito Especial</h3>
-          <p class="food-desc">Recheado com carne, queijo e arroz.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 28,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 11 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/4106483/pexels-photo-4106483.jpeg" alt="Frango Grelhado">
-          </div>
-          <h3>Frango Grelhado</h3>
-          <p class="food-desc">Peito de frango com legumes.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 26,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <!-- 12 -->
-        <article class="food-card">
-          <button class="fav-btn">❤</button>
-          <div class="food-image">
-            <img src="https://images.pexels.com/photos/4109990/pexels-photo-4109990.jpeg" alt="Pudim Caseiro">
-          </div>
-          <h3>Pudim Caseiro</h3>
-          <p class="food-desc">Clássico brasileiro super cremoso.</p>
-          <div class="bottom-row">
-            <span class="price">R$ 13,90</span>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-      </section>
-
+      <span class="logo-text">Foodly</span>
     </div>
 
-  </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Início</a>
+      <a href="restaurante.html">Restaurantes</a>
+      <a href="#">Contato</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="#">Sobre</a>
+    </nav>
+
+    <div class="navbar-right">
+      <div class="search-wrapper">
+        <input type="text" placeholder="Busque por restaurantes...">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <button class="icon-btn" aria-label="Notificações">🔔</button>
+      <button class="icon-btn" aria-label="Carrinho">🛒</button>
+      <button class="icon-btn" aria-label="Perfil">👤</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <!-- Texto esquerda -->
+      <div class="hero-left">
+        <h1>
+          Os melhores<br>
+          restaurantes<br>
+          <span>direto na sua casa</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Conectamos você aos melhores restaurantes da cidade
+          com entrega rápida e qualidade garantida.
+        </p>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-icon">⏱</span>
+            <span>Entrega em 30–45 min</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">📍</span>
+            <span>Raio de 10 km</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">⭐</span>
+            <span>4,8 (2,5k avaliações)</span>
+          </div>
+        </div>
+
+        <button class="hero-cta"><a href="restaurante.html">Ver Restaurantes</a></button>
+      </div>
+
+      <!-- Imagens direita (4 cards) -->
+      <div class="hero-right">
+        <div class="hero-card hero-card-1">
+          <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg" alt="Hambúrguer">
+        </div>
+        <div class="hero-card hero-card-2">
+          <img src="https://images.pexels.com/photos/4109135/pexels-photo-4109135.jpeg" alt="Pizza">
+        </div>
+        <div class="hero-card hero-card-3">
+          <img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg" alt="Pipoca">
+        </div>
+        <div class="hero-card hero-card-4">
+          <img src="https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg" alt="Salada">
+        </div>
+      </div>
+    </section>
+
+    <!-- Nossos Afiliados -->
+    <section class="affiliates">
+      <h2>Nossos Afiliados</h2>
+      <p class="affiliates-subtitle">
+        Descubra os melhores restaurantes parceiros em diversas categorias gastronômicas.
+      </p>
+
+      <div class="affiliates-grid">
+        <article class="affiliate-card">
+          <img src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg" alt="Restaurante 1">
+          <div class="affiliate-info">
+            <h3>Burger Prime</h3>
+            <p>Hambúrgueres artesanais com molhos exclusivos.</p>
+          </div>
+        </article>
+
+        <article class="affiliate-card">
+          <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg" alt="Restaurante 2">
+          <div class="affiliate-info">
+            <h3>Nonna Bella</h3>
+            <p>Massas e pizzas no melhor estilo italiano.</p>
+          </div>
+        </article>
+
+        <article class="affiliate-card">
+          <img src="https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg" alt="Restaurante 3">
+          <div class="affiliate-info">
+            <h3>Green Life</h3>
+            <p>Opções leves e saudáveis para o seu dia.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
 </body>
 </html>

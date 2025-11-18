@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodly - Restaurantes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="restaurante.css">
+</head>
+<body>
+
+  <!-- NAVBAR (mesmo estilo da home) -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="logo-box">🍽</div>
+      <span class="logo-text">Foodly</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="restaurantes.html" class="active">Restaurantes</a>
+      <a href="#">Contato</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="#">Sobre</a>
+    </nav>
+
+    <div class="navbar-right">
+      <div class="search-wrapper">
+        <input type="text" placeholder="Busque por restaurantes ou tipos de comida...">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <button class="icon-btn" aria-label="Notificações">🔔</button>
+      <button class="icon-btn" aria-label="Carrinho">🛒</button>
+      <button class="icon-btn" aria-label="Perfil">👤</button>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="page">
+    <!-- Título + filtros -->
+    <section class="header-section">
+      <div>
+        <h1>Restaurantes perto de você</h1>
+        <p>Escolha entre opções selecionadas com entrega rápida, boa avaliação e comida de qualidade.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn filter-btn-active">Todos</button>
+        <button class="filter-btn">Hambúrguer</button>
+        <button class="filter-btn">Pizza</button>
+        <button class="filter-btn">Saudável</button>
+        <button class="filter-btn">Sushi</button>
+      </div>
+    </section>
+
+    <!-- LINK PARA PÁGINA DE CADASTRO DE RESTAURANTE -->
+    <div class="cadastro-restaurante-link">
+      <a href="cadastroRestaurante.html">+ Cadastrar Restaurante</a>
+    </div>
+
+    <!-- LISTA DE RESTAURANTES -->
+    <section class="restaurants-grid">
+
+      <!-- 1 -->
+      <article class="restaurant-card">
+        <div class="restaurant-thumb">
+          <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg" alt="Burger Prime">
+        </div>
+        <div class="restaurant-info">
+          <h2>Burger Prime</h2>
+          <p class="restaurant-type">Hambúrguer • Smash • Fritas artesanais</p>
+
+          <div class="restaurant-meta">
+            <span>⭐ 4,8</span>
+            <span>⏱ 30–40 min</span>
+            <span>📍 2,3 km</span>
+          </div>
+
+          <p class="restaurant-fee">Taxa de entrega: <strong>R$ 5,90</strong></p>
+
+          <button class="btn-cardapio">Ver cardápio</button>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="restaurant-card">
+        <div class="restaurant-thumb">
+          <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg" alt="Nonna Bella">
+        </div>
+        <div class="restaurant-info">
+          <h2>Nonna Bella</h2>
+          <p class="restaurant-type">Pizzas • Massas • Forno a lenha</p>
+
+          <div class="restaurant-meta">
+            <span>⭐ 4,7</span>
+            <span>⏱ 35–50 min</span>
+            <span>📍 3,1 km</span>
+          </div>
+
+          <p class="restaurant-fee">Taxa de entrega: <strong>Grátis acima de R$ 60</strong></p>
+
+          <button class="btn-cardapio">Ver cardápio</button>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="restaurant-card">
+        <div class="restaurant-thumb">
+          <img src="https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg" alt="Green Life">
+        </div>
+        <div class="restaurant-info">
+          <h2>Green Life</h2>
+          <p class="restaurant-type">Saladas • Bowls • Comida saudável</p>
+
+          <div class="restaurant-meta">
+            <span>⭐ 4,9</span>
+            <span>⏱ 25–35 min</span>
+            <span>📍 1,4 km</span>
+          </div>
+
+          <p class="restaurant-fee">Taxa de entrega: <strong>R$ 4,50</strong></p>
+
+          <button class="btn-cardapio">Ver cardápio</button>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="restaurant-card">
+        <div class="restaurant-thumb">
+          <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg" alt="Tokyo Sushi">
+        </div>
+        <div class="restaurant-info">
+          <h2>Tokyo Sushi</h2>
+          <p class="restaurant-type">Sushi • Temaki • Combinados especiais</p>
+
+          <div class="restaurant-meta">
+            <span>⭐ 4,6</span>
+            <span>⏱ 40–55 min</span>
+            <span>📍 4,0 km</span>
+          </div>
+
+          <p class="restaurant-fee">Taxa de entrega: <strong>R$ 7,90</strong></p>
+
+          <button class="btn-cardapio">Ver cardápio</button>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="restaurant-card">
+        <div class="restaurant-thumb">
+          <img src="https://images.pexels.com/photos/4109992/pexels-photo-4109992.jpeg" alt="Doce Encanto">
+        </div>
+        <div class="restaurant-info">
+          <h2>Doce Encanto</h2>
+          <p class="restaurant-type">Sobremesas • Brownies • Milkshakes</p>
+
+          <div class="restaurant-meta">
+            <span>⭐ 4,9</span>
+            <span>⏱ 20–30 min</span>
+            <span>📍 1,0 km</span>
+          </div>
+
+          <p class="restaurant-fee">Taxa de entrega: <strong>R$ 3,90</strong></p>
+
+          <button class="btn-cardapio">Ver cardápio</button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+</body>
+</html>

@@ -20,7 +20,7 @@ body {
   color: var(--text-main);
 }
 
-/* ---------------- NAVBAR ---------------- */
+/* ---------- NAVBAR (igual da home) ---------- */
 
 .navbar {
   height: 64px;
@@ -32,7 +32,6 @@ body {
   padding: 0 56px;
 }
 
-/* logo esquerda */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -56,7 +55,6 @@ body {
   font-weight: 700;
 }
 
-/* links centro */
 .nav-links {
   display: flex;
   gap: 26px;
@@ -78,14 +76,12 @@ body {
   color: var(--orange-strong);
 }
 
-/* lado direito */
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* busca */
 .search-wrapper {
   display: flex;
   align-items: center;
@@ -100,7 +96,7 @@ body {
   outline: none;
   padding: 7px 12px;
   font-size: 13px;
-  width: 210px;
+  width: 230px;
   background-color: transparent;
 }
 
@@ -113,7 +109,6 @@ body {
   opacity: 0.75;
 }
 
-/* ícones */
 .icon-btn {
   width: 30px;
   height: 30px;
@@ -128,189 +123,185 @@ body {
   box-shadow: 0 5px 12px rgba(15, 23, 42, 0.16);
 }
 
-/* ---------------- HERO ---------------- */
+/* ---------- CONTEÚDO DA PÁGINA ---------- */
 
-.hero {
+.page {
   max-width: 1120px;
-  margin: 40px auto 36px;
+  margin: 32px auto 40px;
   padding: 0 56px;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 40px;
-  align-items: center;
 }
 
-/* texto esquerda */
-.hero-left h1 {
-  font-size: 40px;
-  line-height: 1.2;
-  margin-bottom: 18px;
+/* cabeçalho da página (título + filtros) */
+.header-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
 }
 
-.hero-left h1 span {
-  color: var(--orange-strong);
+.header-section h1 {
+  font-size: 26px;
+  margin-bottom: 4px;
 }
 
-.hero-subtitle {
-  font-size: 15px;
+.header-section p {
+  font-size: 14px;
   color: var(--text-muted);
-  max-width: 440px;
-  margin-bottom: 20px;
+  max-width: 460px;
 }
 
-/* linha de infos */
-.hero-meta {
+/* filtros */
+.filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-bottom: 20px;
+  gap: 8px;
 }
 
-.meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.filter-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 14px;
   font-size: 13px;
+  background-color: #fff7f2;
   color: var(--text-muted);
+  cursor: pointer;
 }
 
-.meta-icon {
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background-color: rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
+.filter-btn-active {
+  background-color: var(--orange-strong);
+  color: #ffffff;
+  border-color: transparent;
 }
 
-/* botão CTA */
-.hero-cta {
-  border: none;
-  border-radius: 999px;
-  padding: 11px 26px;
+/* ---------- LINK PARA CADASTRO DE RESTAURANTE ---------- */
+
+.cadastro-restaurante-link {
+  margin: 8px 0 20px 0;
+}
+
+.cadastro-restaurante-link a {
+  display: inline-block;
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
-  cursor: pointer;
-  background-color: var(--orange-strong);
-  box-shadow: 0 14px 30px rgba(255, 75, 43, 0.45);
+  color: var(--orange-strong);
+  text-decoration: none;
+  background-color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease;
 }
 
-/* imagens direita */
-.hero-right {
+.cadastro-restaurante-link a:hover {
+  background-color: var(--orange);
+  color: #ffffff;
+}
+
+/* ---------- GRID DE RESTAURANTES ---------- */
+
+.restaurants-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 14px;
+  gap: 18px 20px;
 }
 
-.hero-card {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
+/* CARD DO RESTAURANTE */
+.restaurant-card {
   background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  box-shadow: var(--shadow-soft);
 }
 
-.hero-card img {
+/* imagem */
+.restaurant-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* ---------------- NOSSOS AFILIADOS ---------------- */
-
-.affiliates {
-  max-width: 1120px;
-  margin: 0 auto 48px;
-  padding: 0 56px;
-}
-
-.affiliates h2 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 6px;
-}
-
-.affiliates-subtitle {
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 22px;
-}
-
-.affiliates-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.affiliate-card {
-  background-color: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
+/* info */
+.restaurant-info {
+  padding: 12px 14px 14px;
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
-.affiliate-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+.restaurant-info h2 {
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 
-.affiliate-info {
-  padding: 12px 14px 14px;
-}
-
-.affiliate-info h3 {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.affiliate-info p {
-  font-size: 12px;
+.restaurant-type {
+  font-size: 13px;
   color: var(--text-muted);
 }
 
-/* ---------------- RESPONSIVO BÁSICO ---------------- */
+.restaurant-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.restaurant-fee {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* botão dentro do card */
+.btn-cardapio {
+  margin-top: 8px;
+  align-self: flex-start;
+  border-radius: 999px;
+  border: none;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--orange), var(--orange-strong));
+  box-shadow: 0 10px 20px rgba(255, 138, 31, 0.35);
+}
+
+/* ---------- RESPONSIVO ---------- */
 
 @media (max-width: 960px) {
   .navbar {
     padding: 0 20px;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
-    text-align: center;
-  }
-
-  .hero-right {
-    margin-top: 20px;
-  }
-
-  .affiliates {
+  .page {
     padding: 0 20px 40px;
   }
 
-  .affiliates-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 720px) {
   .nav-links {
-    display: none; /* simplifica no celular */
+    display: none;
   }
 
   .search-wrapper input {
-    width: 150px;
+    width: 160px;
   }
 
-  .affiliates-grid {
+  .restaurant-card {
     grid-template-columns: 1fr;
   }
 }

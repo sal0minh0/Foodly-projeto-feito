@@ -104,6 +104,7 @@ body {
   padding: 0 56px;
 }
 
+/* cabeçalho da página */
 .page-header {
   margin-bottom: 20px;
 }
@@ -116,20 +117,107 @@ body {
 .page-header p {
   font-size: 14px;
   color: var(--text-muted);
-  max-width: 540px;
+  max-width: 520px;
 }
 
-/* layout: formulário + info lateral */
+/* layout 2 colunas: paleta + formulário */
 .layout {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
+  grid-template-columns: 0.85fr 1.15fr;
   gap: 24px;
   align-items: flex-start;
 }
 
-/* ---------- CARD DE SUPORTE (FORM) ---------- */
+/* ---------- CARD DE PALETA ---------- */
 
-.support-card {
+.palette-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.palette-card h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.palette-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.palette-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.palette-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-box {
+  width: 34px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* cores */
+.color-box.primary {
+  background-color: #ff8a1f;
+}
+
+.color-box.primary-strong {
+  background-color: #ff4b2b;
+}
+
+.color-box.bg-soft {
+  background-color: #ffece0;
+}
+
+.color-box.text-main {
+  background-color: #1f2933;
+}
+
+.color-box.text-muted {
+  background-color: #6b7280;
+}
+
+.palette-item strong {
+  font-size: 13px;
+}
+
+.palette-item p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* dicas */
+.tips h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.tips ul {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.tips li {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+/* ---------- CARD DO FORMULÁRIO ---------- */
+
+.form-card {
   background-color: #ffffff;
   border-radius: 18px;
   padding: 18px 20px 20px;
@@ -147,7 +235,7 @@ body {
   margin-bottom: 14px;
 }
 
-.support-form {
+.restaurant-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -189,72 +277,40 @@ body {
   background-color: #ffffff;
 }
 
-.btn-enviar {
-  align-self: flex-start;
-  margin-top: 4px;
+/* rodapé do formulário */
+.form-footer {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.checkbox-label input {
+  width: 15px;
+  height: 15px;
+}
+
+/* botão salvar */
+.btn-submit {
   border-radius: 999px;
   border: none;
-  padding: 9px 26px;
+  padding: 8px 26px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   color: #ffffff;
   background: linear-gradient(90deg, var(--orange), var(--orange-strong));
   box-shadow: 0 10px 20px rgba(255, 138, 31, 0.35);
-}
-
-/* ---------- CARD LATERAL DE INFORMAÇÕES ---------- */
-
-.info-card {
-  background-color: #ffffff;
-  border-radius: 18px;
-  padding: 16px 18px 18px;
-  box-shadow: var(--shadow-soft);
-}
-
-.info-card h2 {
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-
-.info-text {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-}
-
-.info-section {
-  margin-bottom: 10px;
-}
-
-.info-section h3 {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.info-section ul {
-  list-style: disc;
-  padding-left: 18px;
-}
-
-.info-section li {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 2px;
-}
-
-.contact-hints {
-  margin-top: 8px;
-}
-
-.contact-hints p {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.contact-hints .small-text {
-  margin-top: 4px;
-  font-size: 11px;
 }
 
 /* ---------- RESPONSIVO ---------- */
