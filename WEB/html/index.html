@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>FoodCart - Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <!-- caminho atualizado para a pasta css -->
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <div class="page">
@@ -28,7 +29,8 @@
           Faça login para acessar sua conta
         </p>
 
-        <form class="form">
+        <!-- ID adicionado para o JavaScript -->
+        <form class="form" id="form-login">
 
           <!-- Email -->
           <div class="form-group">
@@ -65,15 +67,15 @@
             </div>
           </div>
 
-          <!-- Botão de login -->
+          <!-- Botão de login (sem <a> dentro) -->
           <button type="submit" class="btn-primary">
-             <a href="menu.html" class="forgot-link">ENTRAR</a>
+            ENTRAR
           </button>
         </form>
 
         <!-- Link para cadastro -->
         <p class="bottom-text">
-          Problemas com a plataforma ? 
+          Problemas com a plataforma? 
           <a href="cadastroCliente.html">Cadastre-se</a>
         </p>
       </div>
@@ -85,5 +87,8 @@
 
     </div>
   </div>
+
+  <!-- JavaScript principal -->
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

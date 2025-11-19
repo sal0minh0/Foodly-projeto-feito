@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Foodly - Cadastro de Restaurante</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="cadastro-restaurante.css">
+  <link rel="stylesheet" href="../css/cadastro-restaurante.css">
 </head>
 <body>
 
@@ -17,8 +17,8 @@
 
     <nav class="nav-links">
       <a href="index.html">Início</a>
-      <a href="restaurantes.html">Restaurantes</a>
-      <a href="cadastro-restaurante.html" class="active">Cadastro</a>
+      <a href="restaurante.html">Restaurantes</a>
+      <a href="cadastroRestaurante.html" class="active">Cadastro</a>
       <a href="suporte.html">Suporte</a>
       <a href="#">Sobre</a>
     </nav>
@@ -109,7 +109,8 @@
           <p>Preencha os campos abaixo para registrar um restaurante.</p>
         </div>
 
-        <form class="restaurant-form">
+        <!-- id adicionado para uso futuro com JS -->
+        <form class="restaurant-form" id="form-cadastro-restaurante">
 
           <div class="form-row">
             <div class="form-group">
@@ -200,5 +201,7 @@
     </section>
   </main>
 
+  <!-- JavaScript principal -->
+  <script src="../js/main.js" defer></script>
 </body>
 </html>
