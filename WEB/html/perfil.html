@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodly - Meu Perfil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- caminho atualizado para a pasta css -->
+  <link rel="stylesheet" href="../css/perfil.css">
+</head>
+<body>
+
+  <!-- NAVBAR (mesmo padrão das outras páginas) -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="logo-box">🍽</div>
+      <span class="logo-text">Foodly</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="menu.html">Início</a>
+      <a href="restaurante.html">Restaurantes</a>
+      <a href="menu.html">Menu</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+
+    <div class="navbar-right">
+      <button class="icon-btn" aria-label="Notificações">🔔</button>
+      <button class="icon-btn" aria-label="Carrinho">🛒</button>
+      <button class="icon-btn active" aria-label="Perfil">👤</button>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="page">
+    <section class="profile-container">
+
+      <!-- CARD PRINCIPAL DO PERFIL -->
+      <article class="profile-card">
+        <header class="profile-header">
+          <div class="profile-info">
+            <div class="avatar">
+              <span>JS</span>
+            </div>
+            <div class="profile-text">
+              <h1>João Silva</h1>
+              <p>Membro desde 2024</p>
+            </div>
+          </div>
+
+          <button class="btn-outline">
+            ✏️ Editar Perfil
+          </button>
+        </header>
+
+        <div class="profile-fields">
+          <div class="field-row">
+            <div class="field-icon">📧</div>
+            <div class="field-text">
+              <span class="field-label">Email</span>
+              <span class="field-value">joao.silva@email.com</span>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-icon">📞</div>
+            <div class="field-text">
+              <span class="field-label">Telefone</span>
+              <span class="field-value">(11) 99999-9999</span>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-icon">📍</div>
+            <div class="field-text">
+              <span class="field-label">Endereço</span>
+              <span class="field-value">
+                Rua das Flores, 123 - São Paulo, SP
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARDS SECUNDÁRIOS (OPÇÕES) -->
+      <section class="options-list">
+
+        <article class="option-card">
+          <div class="option-left">
+            <div class="option-icon premium">⭐</div>
+            <div class="option-text">
+              <div class="option-title">
+                Usuário Premium
+                <span class="badge-upgrade">UPGRADE</span>
+              </div>
+              <p>Desbloqueie benefícios exclusivos e entregas grátis.</p>
+            </div>
+          </div>
+          <div class="option-arrow">›</div>
+        </article>
+
+        <article class="option-card">
+          <div class="option-left">
+            <div class="option-icon support">💬</div>
+            <div class="option-text">
+              <div class="option-title">Suporte Técnico</div>
+              <p>Precisa de ajuda? Entre em contato conosco.</p>
+            </div>
+          </div>
+          <div class="option-arrow">›</div>
+        </article>
+
+        <article class="option-card">
+          <div class="option-left">
+            <div class="option-icon report">📊</div>
+            <div class="option-text">
+              <div class="option-title">Relatório de Pedidos</div>
+              <p>Visualize seu histórico de pedidos e estatísticas.</p>
+            </div>
+          </div>
+          <div class="option-arrow">›</div>
+        </article>
+
+      </section>
+    </section>
+  </main>
+
+  <!-- FOOTER SIMPLES (OPCIONAL, MESMO TOM DO SISTEMA) -->
+  <footer class="footer">
+    <p>© 2024 Foodly. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
