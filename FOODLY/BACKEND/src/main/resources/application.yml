@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/foodly
-    username: root
-    password: 185185
+    username: user
+    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

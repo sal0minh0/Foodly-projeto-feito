@@ -4,11 +4,17 @@ import com.foodly.DAO.ClienteDAO;
 import com.foodly.DAO.UsuarioDAO;
 import com.foodly.Models.Cliente;
 import com.foodly.Models.Usuario;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@RestController
+@RequestMapping("/api/clientes")
+@CrossOrigin(origins = "*")
 public class ClienteController {
 
     private final UsuarioDAO usuarioDAO;
@@ -20,60 +26,134 @@ public class ClienteController {
     }
 
     /**
-     * H1 - Cadastro do Cliente
-     * Fluxo: cria um usuário do tipo "cliente" e depois o registro em clientes.
+     * POST /api/clientes/cadastrar
+     * DEVE vir ANTES de /{id}
      */
-    public Cliente cadastrarCliente(String nome,
-                                    String email,
-                                    String senhaHash,
-                                    String telefone,
-                                    String enderecoPadrao) {
-
+    @PostMapping("/cadastrar")
+    public ResponseEntity<?> cadastrarCliente(@RequestBody ClienteRequestDTO request) {
         try {
-            // 1) Cria o usuário
+            System.out.println("=== Cadastro Cliente ===");
+            System.out.println("Nome: " + request.getNome());
+            
+            if (request.getNome() == null || request.getNome().trim().isEmpty()) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("Nome é obrigatório"));
+            }
+            
+            if (request.getEmail() == null || request.getEmail().trim().isEmpty()) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("Email é obrigatório"));
+            }
+            
+            if (request.getSenha() == null || request.getSenha().trim().isEmpty()) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("Senha é obrigatória"));
+            }
+            
+            if (!request.getSenha().equals(request.getConfirmarSenha())) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("As senhas não coincidem"));
+            }
+
             Usuario usuario = new Usuario();
-            usuario.setNome(nome);
-            usuario.setEmail(email);
-            usuario.setSenhaHash(senhaHash);
-            usuario.setTelefone(telefone);
+            usuario.setNome(request.getNome());
+            usuario.setEmail(request.getEmail());
+            usuario.setSenhaHash(request.getSenha()); // TODO: Hash the password
+            usuario.setTelefone(request.getTelefone());
             usuario.setTipoUsuario("cliente");
             usuario.setCriadoEm(LocalDateTime.now());
 
             int usuarioId = usuarioDAO.salvar(usuario);
 
-            // 2) Cria o cliente associado ao usuário
             Cliente cliente = new Cliente();
             cliente.setUsuarioId(usuarioId);
-            cliente.setEnderecoPadrao(enderecoPadrao);
+            cliente.setEnderecoPadrao(request.getEnderecoPadrao() != null ? request.getEnderecoPadrao() : "");
 
             int clienteId = clienteDAO.salvar(cliente);
             cliente.setId(clienteId);
 
-            return cliente;
+            return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ClienteResponseDTO(clienteId, usuarioId, request.getNome(), request.getEmail()));
 
-        } catch (SQLException e) {
-            // Aqui é só esqueleto: você decide se loga, relança, ou trata de outra forma
-            System.err.println("Erro ao cadastrar cliente: " + e.getMessage());
-            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse("Erro: " + e.getMessage()));
         }
     }
 
-    public Cliente buscarClientePorId(int clienteId) {
+    @GetMapping
+    public ResponseEntity<?> listarClientes() {
         try {
-            return clienteDAO.buscarPorId(clienteId);
+            List<Cliente> clientes = clienteDAO.listarTodos();
+            return ResponseEntity.ok(clientes);
         } catch (SQLException e) {
-            System.err.println("Erro ao buscar cliente: " + e.getMessage());
-            return null;
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse("Erro ao listar clientes: " + e.getMessage()));
         }
     }
 
-    public List<Cliente> listarClientes() {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> buscarClientePorId(@PathVariable int id) {
         try {
-            return clienteDAO.listarTodos();
+            Cliente cliente = clienteDAO.buscarPorId(id);
+            if (cliente == null) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(cliente);
         } catch (SQLException e) {
-            System.err.println("Erro ao listar clientes: " + e.getMessage());
-            return List.of();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse("Erro ao buscar cliente: " + e.getMessage()));
         }
     }
 
+    // DTOs
+    static class ClienteRequestDTO {
+        private String nome;
+        private String email;
+        private String senha;
+        private String confirmarSenha;
+        private String telefone;
+        private String enderecoPadrao;
+
+        public ClienteRequestDTO() {}
+
+        public String getNome() { return nome; }
+        public void setNome(String nome) { this.nome = nome; }
+        public String getEmail() { return email; }
+        public void setEmail(String email) { this.email = email; }
+        public String getSenha() { return senha; }
+        public void setSenha(String senha) { this.senha = senha; }
+        public String getConfirmarSenha() { return confirmarSenha; }
+        public void setConfirmarSenha(String confirmarSenha) { this.confirmarSenha = confirmarSenha; }
+        public String getTelefone() { return telefone; }
+        public void setTelefone(String telefone) { this.telefone = telefone; }
+        public String getEnderecoPadrao() { return enderecoPadrao; }
+        public void setEnderecoPadrao(String enderecoPadrao) { this.enderecoPadrao = enderecoPadrao; }
+    }
+
+    static class ClienteResponseDTO {
+        private int clienteId;
+        private int usuarioId;
+        private String nome;
+        private String email;
+
+        public ClienteResponseDTO(int clienteId, int usuarioId, String nome, String email) {
+            this.clienteId = clienteId;
+            this.usuarioId = usuarioId;
+            this.nome = nome;
+            this.email = email;
+        }
+
+        public int getClienteId() { return clienteId; }
+        public int getUsuarioId() { return usuarioId; }
+        public String getNome() { return nome; }
+        public String getEmail() { return email; }
+    }
+
+    static class ErrorResponse {
+        private String message;
+
+        public ErrorResponse(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() { return message; }
+    }
 }
