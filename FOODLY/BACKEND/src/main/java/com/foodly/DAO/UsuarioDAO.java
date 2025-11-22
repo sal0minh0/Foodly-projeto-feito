@@ -3,6 +3,8 @@ package com.foodly.DAO;
 import com.foodly.Models.Usuario;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDAO {
 

@@ -27,7 +27,7 @@ public class ClienteService {
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         usuario.setEmail(email);
-        usuario.setSenhaHash(senhaHash); // TODO: Implement BCrypt password hashing
+        usuario.setSenhaHash(senhaHash); 
         usuario.setTelefone(telefone);
         usuario.setTipoUsuario("cliente");
         usuario.setCriadoEm(LocalDateTime.now());

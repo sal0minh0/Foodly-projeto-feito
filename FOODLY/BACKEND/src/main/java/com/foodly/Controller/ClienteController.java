@@ -54,7 +54,7 @@ public class ClienteController {
             Usuario usuario = new Usuario();
             usuario.setNome(request.getNome());
             usuario.setEmail(request.getEmail());
-            usuario.setSenhaHash(request.getSenha()); // TODO: Hash the password
+            usuario.setSenhaHash(request.getSenha()); 
             usuario.setTelefone(request.getTelefone());
             usuario.setTipoUsuario("cliente");
             usuario.setCriadoEm(LocalDateTime.now());
