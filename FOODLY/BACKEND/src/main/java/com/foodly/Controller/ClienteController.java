@@ -6,6 +6,7 @@ import com.foodly.Models.Cliente;
 import com.foodly.Models.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -100,6 +101,170 @@ public class ClienteController {
         } catch (SQLException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(new ErrorResponse("Erro ao buscar cliente: " + e.getMessage()));
+        }
+    }
+
+    @GetMapping("/visualizar")
+    public ResponseEntity<String> visualizarClientes() {
+        try {
+            List<Cliente> clientes = clienteDAO.listarTodos();
+            
+            StringBuilder html = new StringBuilder();
+            html.append("""
+                    <!DOCTYPE html>
+                    <html lang="pt-BR">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Clientes Cadastrados - Foodly</title>
+                        <link rel="icon" type="image/png" href="/assets/favicon2.png">
+                        <style>
+                            * { margin: 0; padding: 0; box-sizing: border-box; }
+                            body {
+                                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                background: #D3D3D3;
+                                padding: 20px;
+                            }
+                            .container {
+                                max-width: 1200px;
+                                margin: 0 auto;
+                                background: white;
+                                border-radius: 20px;
+                                padding: 40px;
+                                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                            }
+                            h1 {
+                                color: #667eea;
+                                text-align: center;
+                                margin-bottom: 30px;
+                            }
+                            .stats {
+                                background: #f8f9fa;
+                                padding: 20px;
+                                border-radius: 10px;
+                                margin-bottom: 30px;
+                                text-align: center;
+                            }
+                            .stats h2 {
+                                color: #28a745;
+                                font-size: 24px;
+                            }
+                            table {
+                            
+                                width: 100%;
+                                border-collapse: separate;
+                                border-spacing: 0;      
+                                margin-bottom: 20px;
+                            }
+
+                            thead th {
+                                background: #667eea;
+                                color: white;
+                                padding: 15px;
+                                text-align: left;
+                                font-weight: 600;
+                            }
+
+                            thead th:first-child {
+                                border-top-left-radius: 10px;
+                            }
+
+                            thead th:last-child {
+                                border-top-right-radius: 10px;
+                            }
+
+                            td {
+                                padding: 12px 15px;
+                                border-bottom: 1px solid #dee2e6;
+                            }
+
+                            tr:hover {
+                                background: #f8f9fa;
+                            }
+                            .no-data {
+                                text-align: center;
+                                padding: 40px;
+                                color: #6c757d;
+                                font-size: 18px;
+                            }
+                            .back-btn {
+                                display: inline-block;
+                                background: #667eea;
+                                color: white;
+                                padding: 12px 30px;
+                                border-radius: 8px;
+                                text-decoration: none;
+                                margin-top: 20px;
+                                transition: all 0.3s ease;
+                            }
+                            .back-btn:hover {
+                                background: #1f44e7;
+                                transform: translateY(-2px);
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <h1>👥 Clientes Cadastrados</h1>
+                            <div class="stats">
+                                <h2>Total:&nbsp;""").append(clientes.size()).append("""
+                                 Cliente(s)</h2>
+                            </div>
+                    """);
+            
+            if (clientes.isEmpty()) {
+                html.append("""
+                            <div class="no-data">
+                                ❌ Nenhum cliente cadastrado ainda
+                            </div>
+                        """);
+            } else {
+                html.append("""
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Telefone</th>
+                                        <th>Endereço Padrão</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        """);
+                
+                for (Cliente cliente : clientes) {
+                    Usuario usuario = usuarioDAO.buscarPorId(cliente.getUsuarioId());
+                    html.append("<tr>")
+                        .append("<td>").append(cliente.getId()).append("</td>")
+                        .append("<td>").append(usuario != null ? usuario.getNome() : "N/A").append("</td>")
+                        .append("<td>").append(usuario != null ? usuario.getEmail() : "N/A").append("</td>")
+                        .append("<td>").append(usuario != null && usuario.getTelefone() != null ? usuario.getTelefone() : "-").append("</td>")
+                        .append("<td>").append(cliente.getEnderecoPadrao() != null && !cliente.getEnderecoPadrao().isEmpty() ? cliente.getEnderecoPadrao() : "-").append("</td>")
+                        .append("</tr>");
+                }
+                
+                html.append("""
+                                </tbody>
+                            </table>
+                        """);
+            }
+            
+            html.append("""
+                            <a href="/" class="back-btn">↩ Voltar para Home</a>
+                        </div>
+                    </body>
+                    </html>
+                    """);
+            
+            return ResponseEntity.ok()
+                    .contentType(MediaType.TEXT_HTML)
+                    .body(html.toString());
+                    
+        } catch (SQLException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .contentType(MediaType.TEXT_HTML)
+                    .body("<h1>Erro ao carregar clientes: " + e.getMessage() + "</h1>");
         }
     }
 

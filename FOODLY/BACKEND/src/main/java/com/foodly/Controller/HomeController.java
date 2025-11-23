@@ -113,7 +113,7 @@ public class HomeController {
                     <div class="container">
                         <div class="logo">⚙️</div>
                         <h1>API do Foodly</h1>
-                        <div class="status">✓ Funcionando</div>
+                        <div class="status">✔ Funcionando</div>
 
                         <div class="info">
                             <div class="info-item">
@@ -138,6 +138,7 @@ public class HomeController {
                             <h3 style="color: #495057; margin-bottom: 15px;">Endpoints Disponíveis:</h3>
                             <a href="/api" class="endpoint">⚠️ GET /api - Informações (JSON)</a>
                             <a href="/health" class="endpoint">❗️ GET /health - Checar SQL</a>
+                            <a href="/api/clientes/visualizar" class="endpoint">👥 GET /api/clientes/visualizar - Ver Clientes</a>
                         </div>
                     </div>
                 </body>
