@@ -98,3 +98,50 @@ if (cadastroRestauranteForm) {
 
 // Arquivo principal de utilitários
 console.log("Foodly - Sistema carregado");
+
+// Arquivo auxiliar - funções compartilhadas entre páginas
+
+// Funções de autenticação
+function getUsuarioLogado() {
+  const usuario = localStorage.getItem("usuarioLogado");
+  return usuario ? JSON.parse(usuario) : null;
+}
+
+function salvarUsuarioLogado(usuario) {
+  localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+}
+
+function isLogado() {
+  return getUsuarioLogado() !== null;
+}
+
+function logout() {
+  if (confirm("Deseja realmente sair?")) {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "index.html";
+  }
+}
+
+function verificarAutenticacao() {
+  if (!isLogado()) {
+    alert("Você precisa estar logado para acessar esta página");
+    window.location.href = "index.html";
+  }
+}
+
+// Atualizar informações do usuário no header (se houver)
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = getUsuarioLogado();
+
+  // Atualizar nome do usuário se elemento existir
+  const nomeUsuarioElement = document.getElementById("nome-usuario");
+  if (nomeUsuarioElement && usuario) {
+    nomeUsuarioElement.textContent = usuario.nome;
+  }
+
+  // Atualizar avatar se elemento existir
+  const avatarElement = document.getElementById("user-avatar");
+  if (avatarElement && usuario && usuario.nome) {
+    avatarElement.textContent = usuario.nome.charAt(0).toUpperCase();
+  }
+});

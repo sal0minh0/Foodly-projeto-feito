@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -258,13 +259,50 @@ public class ClienteController {
                     """);
             
             return ResponseEntity.ok()
-                    .contentType(MediaType.TEXT_HTML)
+                    .contentType(Objects.requireNonNull(MediaType.TEXT_HTML))
                     .body(html.toString());
                     
         } catch (SQLException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .contentType(MediaType.TEXT_HTML)
+                    .contentType(Objects.requireNonNull(MediaType.TEXT_HTML))
                     .body("<h1>Erro ao carregar clientes: " + e.getMessage() + "</h1>");
+        }
+    }
+
+    @PutMapping("/atualizar")
+    public ResponseEntity<?> atualizarCliente(@RequestBody AtualizarClienteDTO request) {
+        try {
+            if (request.getUsuarioId() <= 0) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("ID do usuário inválido"));
+            }
+
+            // Atualizar dados do usuário
+            Usuario usuario = usuarioDAO.buscarPorId(request.getUsuarioId());
+            if (usuario == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            usuario.setNome(request.getNome());
+            usuario.setEmail(request.getEmail());
+            usuario.setTelefone(request.getTelefone());
+            
+            usuarioDAO.atualizar(usuario);
+
+            // Atualizar endereço do cliente
+            if (request.getClienteId() > 0) {
+                Cliente cliente = clienteDAO.buscarPorId(request.getClienteId());
+                if (cliente != null) {
+                    cliente.setEnderecoPadrao(request.getEnderecoPadrao());
+                    clienteDAO.atualizar(cliente);
+                }
+            }
+
+            return ResponseEntity.ok(new SuccessResponse("Perfil atualizado com sucesso"));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse("Erro ao atualizar perfil: " + e.getMessage()));
         }
     }
 
@@ -316,6 +354,38 @@ public class ClienteController {
         private String message;
 
         public ErrorResponse(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() { return message; }
+    }
+
+    static class AtualizarClienteDTO {
+        private int usuarioId;
+        private int clienteId;
+        private String nome;
+        private String email;
+        private String telefone;
+        private String enderecoPadrao;
+
+        public int getUsuarioId() { return usuarioId; }
+        public void setUsuarioId(int usuarioId) { this.usuarioId = usuarioId; }
+        public int getClienteId() { return clienteId; }
+        public void setClienteId(int clienteId) { this.clienteId = clienteId; }
+        public String getNome() { return nome; }
+        public void setNome(String nome) { this.nome = nome; }
+        public String getEmail() { return email; }
+        public void setEmail(String email) { this.email = email; }
+        public String getTelefone() { return telefone; }
+        public void setTelefone(String telefone) { this.telefone = telefone; }
+        public String getEnderecoPadrao() { return enderecoPadrao; }
+        public void setEnderecoPadrao(String enderecoPadrao) { this.enderecoPadrao = enderecoPadrao; }
+    }
+
+    static class SuccessResponse {
+        private String message;
+
+        public SuccessResponse(String message) {
             this.message = message;
         }
 
